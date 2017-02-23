@@ -11,4 +11,5 @@ set(SOURCE_FILES
         driverlog.h
         )
 
+add_definitions(-DDRIVER_SAMPLE_EXPORTS)
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})

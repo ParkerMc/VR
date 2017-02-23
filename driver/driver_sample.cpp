@@ -53,7 +53,7 @@ inline void HmdMatrix_SetIdentity( HmdMatrix34_t *pMatrix )
 
 
 // keys for use with the settings API
-static const char * const k_pch_Sample_Section = "driver_sample";
+static const char * const k_pch_Sample_Section = "driver_parkervr";
 static const char * const k_pch_Sample_SerialNumber_String = "serialNumber";
 static const char * const k_pch_Sample_ModelNumber_String = "modelNumber";
 static const char * const k_pch_Sample_WindowX_Int32 = "windowX";
@@ -158,28 +158,28 @@ public:
 		m_flIPD = vr::VRSettings()->GetFloat( k_pch_SteamVR_Section, k_pch_SteamVR_IPD_Float );
 
 		char buf[1024];
-		vr::VRSettings()->GetString( k_pch_Sample_Section, k_pch_Sample_SerialNumber_String, buf, sizeof( buf ) );
+        vr::VRSettings()->GetString( k_pch_Sample_Section, k_pch_Sample_SerialNumber_String, buf, sizeof( buf ) );
 		m_sSerialNumber = buf;
 
-		vr::VRSettings()->GetString( k_pch_Sample_Section, k_pch_Sample_ModelNumber_String, buf, sizeof( buf ) );
+        vr::VRSettings()->GetString( k_pch_Sample_Section, k_pch_Sample_ModelNumber_String, buf, sizeof( buf ) );
 		m_sSerialNumber = buf;
 
-        m_nWindowX = 100;//vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowX_Int32 );
-        m_nWindowY = 100;//vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowY_Int32 );
-        m_nWindowWidth = 1920;//vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowWidth_Int32 );
-        m_nWindowHeight = 1080;//vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowHeight_Int32 );
-        m_nRenderWidth = 1344;//vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_RenderWidth_Int32 );
-        m_nRenderHeight = 1512;//vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_RenderHeight_Int32 );
-        m_flSecondsFromVsyncToPhotons = 0.1; //vr::VRSettings()->GetFloat( k_pch_Sample_Section, k_pch_Sample_SecondsFromVsyncToPhotons_Float );
-        m_flDisplayFrequency = 90;//vr::VRSettings()->GetFloat( k_pch_Sample_Section, k_pch_Sample_DisplayFrequency_Float );
+        m_nWindowX = vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowX_Int32 );
+        m_nWindowY = vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowY_Int32 );
+        m_nWindowWidth = vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowWidth_Int32 );
+        m_nWindowHeight = vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowHeight_Int32 );
+        m_nRenderWidth = vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_RenderWidth_Int32 );
+        m_nRenderHeight = vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_RenderHeight_Int32 );
+        m_flSecondsFromVsyncToPhotons = vr::VRSettings()->GetFloat( k_pch_Sample_Section, k_pch_Sample_SecondsFromVsyncToPhotons_Float );
+        m_flDisplayFrequency = vr::VRSettings()->GetFloat( k_pch_Sample_Section, k_pch_Sample_DisplayFrequency_Float );
 
-		DriverLog( "driver_null: Serial Number: %s\n", m_sSerialNumber.c_str() );
-		DriverLog( "driver_null: Model Number: %s\n", m_sModelNumber.c_str() );
-		DriverLog( "driver_null: Window: %d %d %d %d\n", m_nWindowX, m_nWindowY, m_nWindowWidth, m_nWindowHeight );
-		DriverLog( "driver_null: Render Target: %d %d\n", m_nRenderWidth, m_nRenderHeight );
-		DriverLog( "driver_null: Seconds from Vsync to Photons: %f\n", m_flSecondsFromVsyncToPhotons );
-		DriverLog( "driver_null: Display Frequency: %f\n", m_flDisplayFrequency );
-		DriverLog( "driver_null: IPD: %f\n", m_flIPD );
+        DriverLog( "driver_parkervr: Serial Number: %s\n", m_sSerialNumber.c_str() );
+        DriverLog( "driver_parkervr: Model Number: %s\n", m_sModelNumber.c_str() );
+        DriverLog( "driver_parkervr: Window: %d %d %d %d\n", m_nWindowX, m_nWindowY, m_nWindowWidth, m_nWindowHeight );
+        DriverLog( "driver_parkervr: Render Target: %d %d\n", m_nRenderWidth, m_nRenderHeight );
+        DriverLog( "driver_parkervr: Seconds from Vsync to Photons: %f\n", m_flSecondsFromVsyncToPhotons );
+        DriverLog( "driver_parkervr: Display Frequency: %f\n", m_flDisplayFrequency );
+        DriverLog( "driver_parkervr: IPD: %f\n", m_flIPD );
 	}
 
 	virtual ~CSampleDeviceDriver()
