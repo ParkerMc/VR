@@ -1,5 +1,3 @@
-//============ Copyright (c) Valve Corporation, All rights reserved. ============
-
 #include <openvr_driver.h>
 #include "driverlog.h"
 
@@ -162,7 +160,7 @@ public:
 		m_sSerialNumber = buf;
 
         vr::VRSettings()->GetString( k_pch_Sample_Section, k_pch_Sample_ModelNumber_String, buf, sizeof( buf ) );
-		m_sSerialNumber = buf;
+		m_sModelNumber = buf;
 
         m_nWindowX = vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowX_Int32 );
         m_nWindowY = vr::VRSettings()->GetInt32( k_pch_Sample_Section, k_pch_Sample_WindowY_Int32 );
