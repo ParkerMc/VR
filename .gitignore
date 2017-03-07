@@ -1,5 +1,5 @@
-#QT creator
-build-*
+#build folders
+build*
 
 # Compiled Object files
 *.slo
