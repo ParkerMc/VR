@@ -30,3 +30,6 @@ build*
 *.exe
 *.out
 *.app
+
+# allow fake .so
+!/program/resources/driver_parkervr.so

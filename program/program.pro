@@ -26,10 +26,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     server.cpp \
-    PracticalSocket.cpp
+    PracticalSocket.cpp \
+    windowspath.cpp \
+    linuxpath.cpp
 
 HEADERS  += mainwindow.h \
     server.h \
-    PracticalSocket.h
+    PracticalSocket.h \
+    windowspath.h \
+    linuxpath.h
 
-FORMS    += mainwindow.ui
+FORMS    += \
+    mainwindow.ui \
+    windowspath.ui \
+    linuxpath.ui
+
+copydata.commands = $(COPY_DIR) $$PWD/resources/* $$OUT_PWD
+first.depends = $(first) copydata
+export(first.depends)
+export(copydata.commands)
+QMAKE_EXTRA_TARGETS += first copydata
